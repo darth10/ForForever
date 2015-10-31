@@ -25,30 +25,53 @@ namespace ForForever
         {
             var n = 1000000;
 
-            var objs = _rangeHelper.GetArray<RandomRefType>(n);
-            var vals = _rangeHelper.GetArray<RandomValueType>(n);
+            var arrayObjs = _rangeHelper.GetArray<RandomRefType>(n);
+            var arrayVals = _rangeHelper.GetArray<RandomValueType>(n);
+            var listObjs = _rangeHelper.GetList<RandomRefType>(n);
+            var listVals = _rangeHelper.GetList<RandomValueType>(n);
 
             // TODO comments
 
             _testHelper.RunTestsAndPrint(
-                objs,
+                arrayObjs,
                 c => _testHelper.RunWithFor(c),
-                3, "for with List<T>");
+                5, "for with Array of ref types");
 
             _testHelper.RunTestsAndPrint(
-                objs,
+                arrayObjs,
                 c => _testHelper.RunWithForEach(c),
-                3, "foreach with List<T>");
+                5, "foreach with Array of ref types");
 
             _testHelper.RunTestsAndPrint(
-                vals,
+                arrayVals,
                 c => _testHelper.RunWithFor(c),
-                3, "for with Array<T>");
+                5, "for with Array of value types");
 
             _testHelper.RunTestsAndPrint(
-                vals,
+                arrayVals,
                 c => _testHelper.RunWithForEach(c),
-                3, "foreach with Array<T>");
+                5, "foreach with Array of value types");
+
+            // TODO lists
+            _testHelper.RunTestsAndPrint(
+                listObjs,
+                c => _testHelper.RunWithFor(c),
+                5, "for with List of ref types");
+
+            _testHelper.RunTestsAndPrint(
+                listObjs,
+                c => _testHelper.RunWithForEach(c),
+                5, "foreach with List of ref types");
+
+            _testHelper.RunTestsAndPrint(
+                listVals,
+                c => _testHelper.RunWithFor(c),
+                5, "for with List of value types");
+
+            _testHelper.RunTestsAndPrint(
+                listVals,
+                c => _testHelper.RunWithForEach(c),
+                5, "foreach with List of value types");
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

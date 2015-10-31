@@ -18,9 +18,6 @@ namespace ForForever
             Console.WriteLine(message + ":");
             Console.WriteLine("".PadRight(message.Length + 1, '-'));
 
-            for (int i = 0; i < results.Length; i++)
-                Console.WriteLine(String.Format("Run {0}: {1}ms", i, results[i]));
-
             Console.WriteLine(String.Format("Average time: {0}", average));
             Console.WriteLine();
         }
